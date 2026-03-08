@@ -34,7 +34,6 @@ class Video:
         noise_metric = float(diffnorm[condition].mean()) if np.any(condition) else float(np.mean(diffnorm))
         ret, diffnorm = cv.threshold(diffnorm, 100, 0, cv.THRESH_TOZERO_INV)
         diffnorm = np.clip(diffnorm, 0, 255).astype(np.uint8)
-        print('iteration')
         #cv.imwrite("nonedges.png", non_edges)
         cv.imwrite("frame.png", gray)
         cv.imwrite("diff.png", diff)
